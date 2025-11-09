@@ -543,7 +543,7 @@ cat >> "$HOME/agsbx/sb.json" <<EOF
             "tag":"ss-2022",
             "listen": "::",
             "listen_port": $port_ss,
-            "method": "2022-blake3-aes-128-gcm",
+            "method": "2022-blake3-chacha20-poly1305",
             "password": "$sskey"
     },  
 EOF
@@ -1159,7 +1159,7 @@ fi
 if grep ss-2022 "$HOME/agsbx/sb.json" >/dev/null 2>&1; then
 echo "💣【 Shadowsocks-2022 】节点信息如下："
 port_ss=$(cat "$HOME/agsbx/port_ss")
-ss_link="ss://$(echo -n "2022-blake3-aes-128-gcm:$sskey@$server_ip:$port_ss" | base64 -w0)#${sxname}Shadowsocks-2022-$hostname"
+ss_link="ss://$(echo -n "2022-blake3-chacha20-poly1305:$sskey@$server_ip:$port_ss" | base64 -w0)#${sxname}Shadowsocks-2022-$hostname"
 echo "$ss_link" >> "$HOME/agsbx/jh.txt"
 echo "$ss_link"
 echo
