@@ -525,7 +525,7 @@ fi
 if [ -n "$ssp" ]; then
 ssp=sspt
 if [ ! -e "$HOME/agsbx/sskey" ]; then
-sskey=$("$HOME/agsbx/sing-box" generate rand 16 --base64)
+sskey=$("$HOME/agsbx/sing-box" generate rand 32 --base64)
 echo "$sskey" > "$HOME/agsbx/sskey"
 fi
 if [ -z "$port_ss" ] && [ ! -e "$HOME/agsbx/port_ss" ]; then
